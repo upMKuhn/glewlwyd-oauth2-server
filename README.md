@@ -1,4 +1,5 @@
-# Docker image for Glewlwyd Oauth 2 authentication server
+# Using this image is not recomended !!!!
+# USE THIS REPO instead: https://hub.docker.com/r/rafaelhdr/glewlwyd-oauth2-server
 
 This Docker image is based on [Glewlwyd Oauth 2 authentication server](https://github.com/babelouest/glewlwyd).
 
