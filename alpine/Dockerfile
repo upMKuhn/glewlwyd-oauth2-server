@@ -21,7 +21,8 @@ RUN apk add --no-cache \
     libgcrypt \
     libmicrohttpd \
     sqlite-libs \
-    mariadb-client-libs \
+    mariadb-connector-c \
+    mariadb-connector-c-dev \
     libtool \
     libldap \
     wget \
