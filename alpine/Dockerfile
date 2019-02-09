@@ -44,9 +44,9 @@ RUN mkdir /opt && \
     make install && \
 # Download and install Glewlwyd package
     cd /opt && \
-    wget https://github.com/babelouest/glewlwyd/releases/download/v${GLEWLWYD_VERSION}/glewlwyd-full_${GLEWLWYD_VERSION}_Alpine_3.7_x86_64.tar.gz && \
-    tar -xf glewlwyd-full_${GLEWLWYD_VERSION}_Alpine_3.7_x86_64.tar.gz && \
-    rm glewlwyd-full_${GLEWLWYD_VERSION}_Alpine_3.7_x86_64.tar.gz && \
+    wget https://github.com/babelouest/glewlwyd/releases/download/v${GLEWLWYD_VERSION}/glewlwyd-full_${GLEWLWYD_VERSION}_alpine_3.8.1_x86_64.tar.gz && \
+    tar -xf glewlwyd-full_${GLEWLWYD_VERSION}_alpine_3.8.1_x86_64.tar.gz && \
+    rm glewlwyd-full_${GLEWLWYD_VERSION}_alpine_3.8.1_x86_64.tar.gz && \
     tar xf liborcania_*.tar.gz && \
     mv liborcania_*/lib64/* /usr/lib && \
     tar xf libyder_*.tar.gz && \
