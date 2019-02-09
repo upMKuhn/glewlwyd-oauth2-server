@@ -1,4 +1,4 @@
-FROM alpine:3.7
+FROM alpine:3.8.1
 
 # Install required packages
 RUN apk add --no-cache \
@@ -28,7 +28,7 @@ RUN apk add --no-cache \
     cmake \
     bash
 
-ARG GLEWLWYD_VERSION
+ARG GLEWLWYD_VERSION=1.4.9
 ARG LIBJWT_VERSION=1.9.0
 
 # libtool and autoconf may be required, install them with 'sudo apt-get install libtool autoconf'
