@@ -90,5 +90,5 @@ RUN mkdir /opt && \
 COPY ["entrypoint.sh", "/"]
 
 EXPOSE 4593
-
+RUN mkdir /var/cache/glewlwyd/
 CMD ["/entrypoint.sh"]
