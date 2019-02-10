@@ -22,7 +22,6 @@ then
     openssl ec -in /var/glewlwyd/keys/ecdsa.key -pubout -out /var/glewlwyd/keys/ecdsa.pem
 fi
 
-echo 112
 if [ -d "/var/cache/glewlwyd/" ]
 then
     if ! [ -f "/var/cache/glewlwyd/glewlwyd.db" ]
@@ -35,7 +34,6 @@ then
         cat /usr/share/init-db/init-db.sql | sqlite3 /var/cache/glewlwyd/glewlwyd.db
     fi
 fi
-echo 113
 
 # Run application
 /usr/bin/glewlwyd --config-file=/var/glewlwyd/conf/glewlwyd.conf
