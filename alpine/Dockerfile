@@ -67,7 +67,8 @@ RUN mkdir /opt && \
     cp -R glewlwyd_*/share/glewlwyd/webapp/ /usr/share/glewlwyd/ && \
     cp -R ./glewlwyd_*/bin/* /usr/bin && \
     cp -R ./glewlwyd_*/etc/* /etc && \
-    mv ./glewlwyd_*/docs/* / && \
+    mkdir /usr/share/init-db  && \
+    mv ./glewlwyd_*/share/doc/glewlwyd/database /usr/share/init-db && \
     cd / && \
     rm -rf /build && \
     apk del \

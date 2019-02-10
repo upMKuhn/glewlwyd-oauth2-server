@@ -25,9 +25,9 @@ if [ -d "/var/cache/glewlwyd/" ]
 then
     if ! [ -f "/var/cache/glewlwyd/glewlwyd.db" ]
     then
-        cat /docs/database/init-sqlite3-sha512.sql | grep -v "VALUES ('admin"
+        cat /usr/share/init-db/init-sqlite3-sha512.sql | grep -v "VALUES ('admin"
         echo "INSERT INTO g_user (gu_login, gu_name, gu_email, gu_password, gu_enabled) VALUES ('admin', 'Admin', '$ADMIN_EMAIL', '$ADMIN_PASS_HASH', 1);" >> /docs/database/init-sqlite3-sha512.sql
-        sqlite3 /var/cache/glewlwyd/glewlwyd.db < /docs/database/init-sqlite3-sha512.sql
+        sqlite3 /var/cache/glewlwyd/glewlwyd.db < /usr/share/init-db/init-sqlite3-sha512.sql
     fi
 fi
 
