@@ -87,7 +87,6 @@ RUN mkdir /opt && \
     g++ \
     util-linux-dev
 
-RUN mkdir /var/glewlwyd/conf
 COPY ["entrypoint.sh", "/"]
 
 EXPOSE 4593
