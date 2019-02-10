@@ -27,6 +27,7 @@ RUN apk add --no-cache \
     libldap \
     wget \
     cmake \
+    openssl \
     bash
 
 ARG GLEWLWYD_VERSION=1.4.9

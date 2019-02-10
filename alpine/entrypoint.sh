@@ -9,7 +9,7 @@ then
     echo "More information at https://github.com/rafaelhdr/glewlwyd-oauth2-server#volumes"
 fi
 
-if ! [ -f "/var/glewlwyd/keys/" ]
+if ! [ -d "/var/glewlwyd/keys/" ]
 then
     echo "Mount a volume with file at /var/glewlwyd/keys"
     exit 1
