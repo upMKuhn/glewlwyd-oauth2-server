@@ -9,7 +9,7 @@ then
     echo "More information at https://github.com/rafaelhdr/glewlwyd-oauth2-server#volumes"
 fi
 
-if ! [ -f "/var/glewlwyd/keys" ]
+if ! [ -f "/var/glewlwyd/keys/" ]
 then
     echo "Mount a volume with file at /var/glewlwyd/keys"
     exit 1
@@ -17,8 +17,8 @@ fi
 
 if ! [ -f "/var/glewlwyd/keys/ecdsa.pem" ]
 then
-    openssl ecparam -name sect571r1 -genkey -noout -out /var/glewlwyd/keys/ecdsa.pem
-    openssl ec -in /var/glewlwyd/keys/ecdsa.pem -pubout -out /var/glewlwyd/keys/ecdsa.key
+    openssl ecparam -name sect571r1 -genkey -out /var/glewlwyd/keys/ecdsa.key
+    openssl ec -in /var/glewlwyd/keys/ecdsa.key -pubout -out /var/glewlwyd/keys/ecdsa.pem
 fi
 
 # Run application
