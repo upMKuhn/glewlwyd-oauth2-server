@@ -50,13 +50,13 @@ RUN mkdir /opt && \
     wget https://github.com/babelouest/glewlwyd/releases/download/v${GLEWLWYD_VERSION}/glewlwyd-full_${GLEWLWYD_VERSION}_alpine_3.8.1_x86_64.tar.gz && \
     tar -xf glewlwyd-full_${GLEWLWYD_VERSION}_alpine_3.8.1_x86_64.tar.gz && \
     tar xf liborcania_*.tar.gz && \
-    mv liborcania_*/lib64/*.so /usr/bin && \
+    mv liborcania_*/lib64/*.so* /usr/bin && \
     tar xf libyder_*.tar.gz && \
-    mv libyder_*/lib64/*.so /usr/bin && \
+    mv libyder_*/lib64/*.so* /usr/bin && \
     tar xf libulfius_*.tar.gz && \
-    mv libulfius_*/lib64/*.so /usr/bin && \
+    mv libulfius_*/lib64/*.so* /usr/bin && \
     tar xf libhoel_*.tar.gz && \
-    mv libhoel_*/lib64/*.so /usr/bin && \
+    mv libhoel_*/lib64/*.so* /usr/bin && \
     tar xf glewlwyd_*.tar.gz && \
     rm -rf *.tar.gz && \
     mkdir -p /usr/share/glewlwyd/ && \
