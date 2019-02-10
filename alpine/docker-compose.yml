@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  auth:
+    build: .
+    volumes:
+      - ../volumes:/var/cache/glewlwyd/
+      - ../volumes:/var/glewlwyd/keys/
+      - ./:/var/glewlwyd/conf/
+    ports:
+      - "8000:8000"

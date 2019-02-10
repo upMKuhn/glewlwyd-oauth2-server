@@ -17,20 +17,25 @@ fi
 
 if ! [ -f "/var/glewlwyd/keys/ecdsa.pem" ]
 then
+    echo "Generated ecdsa keys: /var/glewlwyd/keys"
     openssl ecparam -name sect571r1 -genkey -out /var/glewlwyd/keys/ecdsa.key
     openssl ec -in /var/glewlwyd/keys/ecdsa.key -pubout -out /var/glewlwyd/keys/ecdsa.pem
 fi
 
+echo 112
 if [ -d "/var/cache/glewlwyd/" ]
 then
     if ! [ -f "/var/cache/glewlwyd/glewlwyd.db" ]
     then
+        echo "Generated Db: /var/cache/glewlwyd/glewlwyd.db"
+        REPLACEMENT_LINE="INSERT INTO g_user (gu_login, gu_name, gu_email, gu_password, gu_enabled) VALUES ('admin', 'Admin', '$ADMIN_EMAIL', '$ADMIN_PASS_HASH', 1);" 
         mkdir -p /var/cache/glewlwyd
-        cat /usr/share/init-db/init-sqlite3-sha512.sql | grep -v "VALUES ('admin" >  /usr/share/init-db/init-sqlite3-sha512.sql
-        echo "INSERT INTO g_user (gu_login, gu_name, gu_email, gu_password, gu_enabled) VALUES ('admin', 'Admin', '$ADMIN_EMAIL', '$ADMIN_PASS_HASH', 1);" >> /usr/share/init-db/init-sqlite3-sha512.sql
-        cat /usr/share/init-db/database/init-sqlite3-sha512.sql | sqlite3  cat /usr/share/init-db/database/init-sqlite3-sha512.sql | sqlite3 /var/cache/glewlwyd/glewlwyd.db
+        sed -i "s/.*VALUES ('admin'.*/$REPLACEMENT_LINE/g" /usr/share/init-db/database/$DB_INIT_FILE
+        cp /usr/share/init-db/database/$DB_INIT_FILE /usr/share/init-db/init-db.sql
+        cat /usr/share/init-db/init-db.sql | sqlite3 /var/cache/glewlwyd/glewlwyd.db
     fi
 fi
+echo 113
 
 # Run application
 /usr/bin/glewlwyd --config-file=/var/glewlwyd/conf/glewlwyd.conf
