@@ -21,6 +21,16 @@ then
     openssl ec -in /var/glewlwyd/keys/ecdsa.key -pubout -out /var/glewlwyd/keys/ecdsa.pem
 fi
 
+if [ -d "/var/cache/glewlwyd/" ]
+then
+    if ! [ -f "/var/cache/glewlwyd/glewlwyd.db" ]
+    then
+        cat /docs/database/init-sqlite3-sha512.sql | grep -v "VALUES ('admin"
+        echo "INSERT INTO g_user (gu_login, gu_name, gu_email, gu_password, gu_enabled) VALUES ('admin', 'Admin', '$ADMIN_EMAIL', '$ADMIN_PASS_HASH', 1);" >> /docs/database/init-sqlite3-sha512.sql
+        sqlite3 /var/cache/glewlwyd/glewlwyd.db < /docs/database/init-sqlite3-sha512.sql
+    fi
+fi
+
 # Run application
 /usr/bin/glewlwyd --config-file=/var/glewlwyd/conf/glewlwyd.conf
 
