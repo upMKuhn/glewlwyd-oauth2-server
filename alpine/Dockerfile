@@ -44,18 +44,21 @@ RUN mkdir /opt && \
     make && \
     make install && \
 # Download and install Glewlwyd package
-    cd /opt && \
+    mkdir /build && \
+    cd /build && \
     wget https://github.com/babelouest/glewlwyd/releases/download/v${GLEWLWYD_VERSION}/glewlwyd-full_${GLEWLWYD_VERSION}_alpine_3.8.1_x86_64.tar.gz && \
     tar -xf glewlwyd-full_${GLEWLWYD_VERSION}_alpine_3.8.1_x86_64.tar.gz && \
-    rm glewlwyd-full_${GLEWLWYD_VERSION}_alpine_3.8.1_x86_64.tar.gz && \
-    tar xf liborcania_*.tar.gz && \
-    tar xf libyder_*.tar.gz && \
-    tar xf libulfius_*.tar.gz && \
-    tar xf libhoel_*.tar.gz && \
-    tar xf glewlwyd_*.tar.gz && \
+    tar xf liborcania_*.tar.gz -C /usr/lib && \
+    tar xf libyder_*.tar.gz -C /usr/lib && \
+    tar xf libulfius_*.tar.gz -C /usr/lib && \
+    tar xf libhoel_*.tar.gz -C /usr/lib && \
     mkdir -p /usr/share/glewlwyd/ && \
-    mv glewlwyd_*/share/glewlwyd/webapp/ /usr/share/glewlwyd/ && \
-    rm -rf * && \
+    tar xf glewlwyd_*.tar.gz && \
+    cp -R glewlwyd_*/share/glewlwyd/webapp/ /usr/share/glewlwyd/ && \
+    cp -R ./glewlwyd_*/bin /usr/bin && \
+    cp -R ./glewlwyd_*/etc /etc && \
+    cd / && \
+    rm -rf /build && \
     apk del \
     tar \
     autoconf \
