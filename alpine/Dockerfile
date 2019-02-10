@@ -55,9 +55,10 @@ RUN mkdir /opt && \
     tar xf libhoel_*.tar.gz -C /usr/lib && \
     mkdir -p /usr/share/glewlwyd/ && \
     tar xf glewlwyd_*.tar.gz && \
+    rm -rf *.tar.gz && \
     cp -R glewlwyd_*/share/glewlwyd/webapp/ /usr/share/glewlwyd/ && \
-    cp -R ./glewlwyd_*/bin /usr/bin && \
-    cp -R ./glewlwyd_*/etc /etc && \
+    cp -R ./glewlwyd_*/bin/* /usr/bin && \
+    cp -R ./glewlwyd_*/etc/* /etc && \
     cd / && \
     rm -rf /build && \
     apk del \
