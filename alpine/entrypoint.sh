@@ -27,9 +27,9 @@ then
     if ! [ -f "/var/cache/glewlwyd/glewlwyd.db" ]
     then
         echo "Generated Db: /var/cache/glewlwyd/glewlwyd.db"
-        REPLACEMENT_LINE="INSERT INTO g_user (gu_login, gu_name, gu_email, gu_password, gu_enabled) VALUES ('admin', 'Admin', '$ADMIN_EMAIL', '$ADMIN_PASS_HASH', 1);" 
-        mkdir -p /var/cache/glewlwyd
-        sed -i "s/.*VALUES ('admin'.*/$REPLACEMENT_LINE/g" /usr/share/init-db/database/$DB_INIT_FILE
+        #REPLACEMENT_LINE="INSERT INTO g_user (gu_login, gu_name, gu_email, gu_password, gu_enabled) VALUES ('admin', 'Admin', '$ADMIN_EMAIL', '$ADMIN_PASS_HASH', 1);" 
+        #mkdir -p /var/cache/glewlwyd
+        #sed -i "s/.*VALUES ('admin'.*/$REPLACEMENT_LINE/g" /usr/share/init-db/database/$DB_INIT_FILE
         cp /usr/share/init-db/database/$DB_INIT_FILE /usr/share/init-db/init-db.sql
         cat /usr/share/init-db/init-db.sql | sqlite3 /var/cache/glewlwyd/glewlwyd.db
     fi
