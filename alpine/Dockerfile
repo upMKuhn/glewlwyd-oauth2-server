@@ -34,8 +34,7 @@ RUN apk add --no-cache \
 ARG GLEWLWYD_VERSION=1.4.9
 ARG LIBJWT_VERSION=1.9.0
 
-ENV DB_INIT_FILE=init-sqlite3-sha512.sql
-ENV ADMIN_PASS_HASH={sha512}75553e3ec2ce8022a694f8c49c2390e3710c7caf805e863980f93f644e5d35e4d8f9f96cbb27b6b8aa111eecf5a6d8cfb3b32613d25e53b501ebefc5d303552a
+ENV DB_INIT_FILE=init-sqlite3-sha256.sql
 ENV ADMIN_EMAIL=root@kuhn.host
 
 # libtool and autoconf may be required, install them with 'sudo apt-get install libtool autoconf'
