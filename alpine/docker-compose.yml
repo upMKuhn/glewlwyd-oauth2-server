@@ -8,4 +8,4 @@ services:
       - ../volumes:/var/glewlwyd/keys/
       - ./:/var/glewlwyd/conf/
     ports:
-      - "8000:8000"
+      - "80:4593"
